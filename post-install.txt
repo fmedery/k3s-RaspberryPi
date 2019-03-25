@@ -1,0 +1,5 @@
+echo "update os"
+chroot /rootfs /usr/bin/apt-get update
+chroot /rootfs /usr/bin/apt-get upgrade
+
+# vim: set ft=sh:
