@@ -4,7 +4,7 @@
 * I will create 1 master and 3 workers.
 * I want to be able to speed up the process of installing and configuring the OS on each SD CARD.
 * I install zeronf package to be able to connect to each node easily.
-* I use a MAC.
+* I use a Mac.
 
 # Pre requis
 * Install balenaEtcher https://www.balena.io/etcher/
