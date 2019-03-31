@@ -12,7 +12,7 @@
 
 # Burn image
 * Disable "Auto-unmount on success" in balenaEtcher settings.
-* Use etcher to burn raspberrypi-ua-netinst img.bz2 on each SD CARD.
+* Use balenaEtcher to burn raspberrypi-ua-netinst img.bz2 on each SD CARD.
 
 # Create the master node
 ## Create unattended config file on each SD CARD 
