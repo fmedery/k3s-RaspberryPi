@@ -5,7 +5,7 @@
 * I want to be able to speed up the process of installing and configuring the OS on each SD CARD.
 * I install zeronf package to be able to connect to each node easily.
 * I use a Mac.
-* I live in Canada so Hardware list is for people living in Canada.
+* I live in Canada so the hardware can be bought in Canada.
 
 # Hardware
 * Raspberry Pi 3 Model B+:
@@ -15,13 +15,13 @@
 * Heatsink Cooler:
     * https://www.amazon.ca/dp/B010ER7UN8/ref=pe_3034960_236394800_TE_dp_5
 
-* switch:
+* Switch:
     * https://www.amazon.ca/dp/B00A121WN6/ref=cm_sw_em_r_mt_dp_U_KerOCbHFS5XZ8
 
-* case:
+* Case:
     * https://www.amazon.ca/ILS-Clear-Acrylic-Cluster-Raspberry/dp/B0768DDTKD
 
-* USB HUB (for power):
+* USB HUB:
     * https://www.amazon.ca/dp/B00YRYS4T4/ref=pe_3034960_236394800_TE_dp_4
 
 * SD CARD:
@@ -29,8 +29,8 @@
 
 # Pre requis
 * Install balenaEtcher https://www.balena.io/etcher/ on your computer
-* Download the latest raspberrypi-ua-netinst img.bz2: https://github.com/FooDeas/raspberrypi-ua-netinst/releases
-
+* Download the latest `raspberrypi-ua-netinst img.bz2`: https://github.com/FooDeas/raspberrypi-ua-netinst/releases
+* Disable `Auto-unmount on success` in balenaEtcher's settings.
 
 # Create the master node
 ## Create the unattended config
@@ -44,7 +44,6 @@ export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 ./init.sh
 ```
 ## Burn image
-* Disable "Auto-unmount on success" in balenaEtcher settings.
 * Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD CARD.
 
 ## install Raspberry Pi
