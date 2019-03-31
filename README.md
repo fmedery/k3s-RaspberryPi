@@ -31,12 +31,9 @@
 * Install balenaEtcher https://www.balena.io/etcher/ on your computer
 * Download the latest raspberrypi-ua-netinst img.bz2: https://github.com/FooDeas/raspberrypi-ua-netinst/releases
 
-# Burn image
-* Disable "Auto-unmount on success" in balenaEtcher settings.
-* Use balenaEtcher to burn raspberrypi-ua-netinst img.bz2 on each SD CARD.
 
 # Create the master node
-## Create the unattended config file on each SD CARD 
+## Create the unattended config
 
 ``` sh
 export HOSTNAME="<master hostname>"
@@ -46,6 +43,9 @@ export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 
 ./init.sh
 ```
+## Burn image
+* Disable "Auto-unmount on success" in balenaEtcher settings.
+* Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD CARD.
 
 ## install Raspberry Pi
 * Start the raspbery Pi with the master SD CARD
@@ -79,7 +79,7 @@ cat /etc/rancher/k3s/k3s.yaml
     * worker2
     * worker3
 
-## Create unattended config file on each SD CARD 
+## Create unattended config file
 * run 
 ``` sh
 export HOSTNAME="<worker 1,2 or 3>"
@@ -88,6 +88,11 @@ export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 
 ./init.sh
 ```
+
+## Burn image
+* Disable "Auto-unmount on success" in balenaEtcher settings.
+* Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD CARD.
+
 ## install Raspberry Pi
 * Start the raspbery Pi with the master SD CARD
 * it takes around 10 minutes for the installation to be finished
