@@ -125,7 +125,7 @@ curl -sfL https://get.k3s.io | K3S_URL=https://${MASTER_IP}:6443 K3S_TOKEN=${AUT
 SSH  # prompt will be back when done
 ```
 
-## test if the worker joined the kubernetes cluster
+## Test if the worker joined the kubernetes cluster
 
 ```sh
 ssh -l root ${MASTER_IP} "k3s kubectl get node"
