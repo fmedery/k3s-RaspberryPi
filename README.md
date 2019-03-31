@@ -32,14 +32,14 @@
 # Pre requis
 
 * Install balenaEtcher https://www.balena.io/etcher/ on your computer.
-* Download the latest `raspberrypi-ua-netinst img.bz2`: https://github.com/FooDeas/raspberrypi-ua-netinst/releases
 * Disable `Auto-unmount on success` in balenaEtcher's settings.
+* Download the latest `raspberrypi-ua-netinst-v<VERSION>.img.bz2`: https://github.com/FooDeas/raspberrypi-ua-netinst/releases/latest
 
 # Create the master node
 
 ## Burn image
 
-* Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD card.
+* Use balenaEtcher to burn `raspberrypi-ua-netinst-v<VERSION>.img.bz2` on the SD card.
 
 ## Create the unattended config
 
@@ -88,7 +88,7 @@ ssh -l root ${MASTER_IP}  "k3s kubectl get node"
 
 ## Burn image
 
-* Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD card.
+* Use balenaEtcher to burn `raspberrypi-ua-netinst-v<VERSION>.img.bz2` on the SD card.
 
 ## Create unattended config file
 

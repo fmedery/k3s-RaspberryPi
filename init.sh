@@ -113,12 +113,13 @@ diskutil eject ${sd_card_device}
 
 # last messages
 echo ""
-echo "all done."
-echo " install the SD CARD in the Raspberry"
-echo "Installation will take up to 15 minutes"
-echo "you will be able to connect to ${hostname}.${domainname}"
-echo "ssh -l root ${hostname}.${domainname}"
+echo "All done."
 echo ""
-echo "if ssh auth using ssh key fail, the default root password: raspbian"
+echo "Install the SD card in the Raspberry."
+echo "Installation will take up to 10 minutes."
+echo "you will be able to connect to ${hostname}.${domainname} using ssh:"
+echo "  ssh -l root ${hostname}.${domainname}"
+echo ""
+echo "if ssh auth using ssh key fail, you can use the default root password: raspbian"
 
 # vim: set ft=sh:
