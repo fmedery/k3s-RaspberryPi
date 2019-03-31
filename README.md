@@ -7,7 +7,7 @@
 * I use a Mac.
 
 # Pre requis
-* Install balenaEtcher https://www.balena.io/etcher/
+* Install balenaEtcher https://www.balena.io/etcher/ on your computer
 * Download the latest raspberrypi-ua-netinst img.bz2: https://github.com/FooDeas/raspberrypi-ua-netinst/releases
 
 # Burn image
