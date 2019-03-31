@@ -7,22 +7,18 @@ set -e
 #############
 
 # you will need to update some variables below
-#volume_path="/Volume"
-#volume_name="NO NAME"
-#sd_card_name="${volume_path}/${volume_name}"
 sd_card_name="$(mount |grep NAME | awk '{print $3" "$4}')"
 
-# I use 32 GB SC CARD so I cheated to get device name
+# I use 32 GB SD cards so I cheated to get the device name
 sd_card_device="/dev/$(diskutil list | egrep  '3.\.. GB.* disk.$' | awk '{print $5}')"
 
 
-domainname="local"
+domainname="${DOMAIN_NAME:-local}"
 hostname="${HOSTNAME}"
 ip="${IP}"
-ip_range="192.168.7"
-ip_netmask="255.255.255.0"
-ip_gateway="${ip_range}.1"
-ip_nameservers="${ip_range}.1"
+ip_netmask="${IP_NETMASK:-255.255.255.0}"
+ip_gateway="${IP_GATEWAY:-192.168.7.1}"
+ip_nameservers="${NAMESERVER:-192.168.7.1}"
 
 timezone="America/Toronto"
 wlan_country="CA"

@@ -46,7 +46,11 @@
 ``` sh
 export HOSTNAME="<master hostname>"
 export MASTER_IP="<master IP>"
-export IP=${MASTER_IP}
+export IP="${MASTER_IP}"
+export IP_NETMASK="<Network mask>" # IP_NETMASK=255.255.255.0 if not set
+export IP_GATEWAY="<Network GW IP>" # IP_GATEWAY=192.168.7.1 if not set
+export NAMESERVER="<DNS name server>" # DNSSERVER=192.168.7.1 if not set
+export DOMAIN_NAME="<domain name>" # DOMAIN_NAME=local if not set
 export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 
 ./init.sh
@@ -90,6 +94,10 @@ ssh -l root ${MASTER_IP}  "k3s kubectl get node"
 ``` sh
 export HOSTNAME="<worker 1,2 or 3>"
 export IP="<worker IP>"
+export IP_NETMASK="<Network mask>" # IP_NETMASK=255.255.255.0 if not set
+export IP_GATEWAY="<Network GW IP>" # IP_GATEWAY=192.168.7.1 if not set
+export NAMESERVER="<DNS name server>" # DNSSERVER=192.168.7.1 if not set
+export DOMAIN_NAME="<domain name>" # DOMAIN_NAME=local if not set
 export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 
 ./init.sh
