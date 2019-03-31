@@ -3,7 +3,7 @@
 * I want to create a kubernetes cluster using k3s on multiple Raspberry Pi 3 Model B+.
 * k3s doesn't support master HA at the moment https://github.com/rancher/k3s#server-ha
 * I will create 1 master and 3 workers.
-* I want to be able to speed up the process of installing and configuring the OS on each SD CARD.
+* I want to be able to speed up the process of installing and configuring the OS on each SD card.
 * I install `zeronf` to be able to connect to each node easily.
 * I use a Mac.
 * I live in Canada so the hardware can be bought in Canada.
@@ -46,12 +46,14 @@
 ``` sh
 export HOSTNAME="<master hostname>"
 export MASTER_IP="<master IP>"
-export IP="${MASTER_IP}"
-export IP_NETMASK="<Network mask>" # IP_NETMASK=255.255.255.0 if not set
-export IP_GATEWAY="<Network GW IP>" # IP_GATEWAY=192.168.7.1 if not set
-export NAMESERVER="<DNS name server>" # DNSSERVER=192.168.7.1 if not set
-export DOMAIN_NAME="<domain name>" # DOMAIN_NAME=local if not set
 export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
+export IP="${MASTER_IP}"
+export IP_NETMASK="<Network mask>"      # IP_NETMASK=255.255.255.0 if not set
+export IP_GATEWAY="<Network GW IP>"     # IP_GATEWAY=192.168.7.1 if not set
+export NAMESERVER="<DNS name server>"   # DNSSERVER=192.168.7.1 if not set
+export DOMAIN_NAME="<domain name>"      # DOMAIN_NAME=local if not set
+export WLAN_COUNTRY="<WLAN country>"    # WLAN_COUNTRY=CA if not set https://github.com/FooDeas/raspberrypi-ua-netinst/blob/devel/doc/wlan_country.txt
+export TZ="<Time zone>"                 # TZ="America/Toronto" if not set https://github.com/FooDeas/raspberrypi-ua-netinst/blob/devel/doc/timezone.txt
 
 ./init.sh
 ```
@@ -84,7 +86,6 @@ ssh -l root ${MASTER_IP}  "k3s kubectl get node"
     * worker2
     * worker3
 
-
 ## Burn image
 
 * Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD card.
@@ -94,11 +95,11 @@ ssh -l root ${MASTER_IP}  "k3s kubectl get node"
 ``` sh
 export HOSTNAME="<worker 1,2 or 3>"
 export IP="<worker IP>"
+export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 export IP_NETMASK="<Network mask>" # IP_NETMASK=255.255.255.0 if not set
 export IP_GATEWAY="<Network GW IP>" # IP_GATEWAY=192.168.7.1 if not set
 export NAMESERVER="<DNS name server>" # DNSSERVER=192.168.7.1 if not set
 export DOMAIN_NAME="<domain name>" # DOMAIN_NAME=local if not set
-export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 
 ./init.sh
 ```

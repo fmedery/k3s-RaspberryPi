@@ -20,8 +20,8 @@ ip_netmask="${IP_NETMASK:-255.255.255.0}"
 ip_gateway="${IP_GATEWAY:-192.168.7.1}"
 ip_nameservers="${NAMESERVER:-192.168.7.1}"
 
-timezone="America/Toronto"
-wlan_country="CA"
+timezone="${TZ:-America/Toronto}"
+wlan_country="${WLAN_COUNTRY:-CA}"
 
 keyboard_layout="us"
 locales="en_US.UTF-8,en_US,en_CA.UTF-8"
@@ -38,7 +38,7 @@ script="./$(basename $0)"
 ################
 
 if [ -z ${HOSTNAME} ] || [ -z ${IP} ] || [ -z "${ROOT_SSH_PUBKEY}" ]; then
-    echo "you need to export 3 variables."
+    echo "you need to export at least 3 variables."
     echo ""
     echo "Usage:"
     echo "export HOSTNAME=\"hostname\""
@@ -50,11 +50,6 @@ fi
 
 if [ ! -d "${sd_card_name}" ]; then
     echo "error: ${sd_card_name} not found."
-    echo ""
-    echo "possible causes:"
-    echo "  * SD CARD is not mounted or raspbian image has to been burned on the SD CARD yet"
-    echo "  * If you are not on a Mac you need to change variable \$volume_path in ${script}"
-    echo ""
     echo "Check README.md for more info"
     exit 1
 fi
