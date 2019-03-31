@@ -103,6 +103,7 @@ EOF
 # copy post installation command
 echo ""
 echo "copy post installation config file"
+echo "cp post-install.txt "${sd_card_name}"/raspberrypi-ua-netinst/config/post-install.txt"
 cp post-install.txt "${sd_card_name}"/raspberrypi-ua-netinst/config/post-install.txt
 
 # eject card
