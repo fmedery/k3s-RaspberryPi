@@ -61,7 +61,7 @@ export TZ="<Time zone>"                 # TZ="America/Toronto" if not set https:
 ## install Raspberry Pi
 
 * Start the raspbery Pi with the master SD card.
-* It will take around 10 minutes for the installation to be finished
+* It will take around 10 minutes for the installation to complete
 * When ready test ssh connectivity:
 ``` sh
 ssh -l root ${HOSTNAME}.local -t hostname
@@ -107,7 +107,7 @@ export DOMAIN_NAME="<domain name>" # DOMAIN_NAME=local if not set
 ## install Raspberry Pi
 
 * Start the raspbery Pi with the master SD card
-* It will take around 10 minutes for the installation to be finished
+* It will take around 10 minutes for the installation to complete
 * When ready test ssh connectivity:
 ``` sh
 ssh -l root ${HOSTNAME}.local hostname
