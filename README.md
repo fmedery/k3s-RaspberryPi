@@ -72,7 +72,7 @@ ssh -l root ${HOSTNAME}.local -t hostname
 ssh -l root ${MASTER_IP} <<-\SSH
 # install k3s
 curl -sfL https://get.k3s.io | sh -
-SSH  # prompt will be back when done
+SSH
 ```
 * test if kubernetes is up
 ```sh
@@ -122,7 +122,7 @@ export AUTH_TOKEN=$(ssh -l root ${MASTER_IP} "cat /var/lib/rancher/k3s/server/no
 ssh -o SendEnv=MASTER_IP -o SendEnv=AUTH_TOKEN -l root ${HOSTNAME}.local <<-\SSH
 # install k3s
 curl -sfL https://get.k3s.io | K3S_URL=https://${MASTER_IP}:6443 K3S_TOKEN=${AUTH_TOKEN} sh -
-SSH  # prompt will be back when done
+SSH
 ```
 
 ## Test if the worker joined the kubernetes cluster
