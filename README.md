@@ -4,7 +4,7 @@
 * k3s doesn't support master HA at the moment https://github.com/rancher/k3s#server-ha
 * I will create 1 master and 3 workers.
 * I want to be able to speed up the process of installing and configuring the OS on each SD CARD.
-* I install zeronf package to be able to connect to each node easily.
+* I install `zeronf` to be able to connect to each node easily.
 * I use a Mac.
 * I live in Canada so the hardware can be bought in Canada.
 
@@ -106,7 +106,6 @@ ssh -l root ${HOSTNAME}.local hostname
 
 ## Install k3s
 
-* install k3s
 ```sh
 export MASTER_IP="<master IP>"
 export AUTH_TOKEN=$(ssh -l root ${MASTER_IP} "cat /var/lib/rancher/k3s/server/node-token")
