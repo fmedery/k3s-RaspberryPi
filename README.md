@@ -58,7 +58,7 @@ export TZ="<Time zone>"                 # TZ="America/Toronto" if not set https:
 ./init.sh
 ```
 
-## Install k3s Raspberry Pi
+## Install Raspbian of Raspberry Pi
 
 * Start the raspbery Pi with the master SD card.
 * It will take around 10 minutes for the installation to be completed.
@@ -104,7 +104,7 @@ export DOMAIN_NAME="<domain name>" # DOMAIN_NAME=local if not set
 ./init.sh
 ```
 
-## Install k3s Raspberry Pi
+## Install Raspbian of Raspberry Pi
 
 * Start the raspbery Pi with the master SD card
 * It will take around 10 minutes for the installation to be completed.

@@ -102,13 +102,12 @@ EOF
 
 # copy post installation command
 echo ""
-echo "copy post installation command"
-echo "cp post-install.txt "${sd_card_name}"/raspberrypi-ua-netinst/config/post-install.txt"
+echo "copy post installation config file"
 cp post-install.txt "${sd_card_name}"/raspberrypi-ua-netinst/config/post-install.txt
 
-# ejct card
+# eject card
 echo ""
-echo "ejecting ${sd_card_device}"
+echo "eject ${sd_card_device}"
 diskutil eject ${sd_card_device}
 
 # last messages
@@ -120,6 +119,6 @@ echo "Installation will take up to 10 minutes."
 echo "you will be able to connect to ${hostname}.${domainname} using ssh:"
 echo "  ssh -l root ${hostname}.${domainname}"
 echo ""
-echo "if ssh auth using ssh key fail, you can use the default root password: raspbian"
+echo "if using ssh key fail, you can use the default root password: raspbian"
 
 # vim: set ft=sh:
