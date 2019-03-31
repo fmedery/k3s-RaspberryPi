@@ -58,7 +58,7 @@ export TZ="<Time zone>"                 # TZ="America/Toronto" if not set https:
 ./init.sh
 ```
 
-## Install Raspberry Pi
+## Install k3s Raspberry Pi
 
 * Start the raspbery Pi with the master SD card.
 * It will take around 10 minutes for the installation to be completed.
@@ -72,7 +72,7 @@ ssh -l root ${HOSTNAME}.local -t hostname
 ssh -l root ${MASTER_IP} <<-\SSH
 # install k3s
 curl -sfL https://get.k3s.io | sh -
-SSH
+SSH  # prompt will be back when done
 ```
 * test if kubernetes is up
 ```sh
@@ -104,7 +104,7 @@ export DOMAIN_NAME="<domain name>" # DOMAIN_NAME=local if not set
 ./init.sh
 ```
 
-## Install Raspberry Pi
+## Install k3s Raspberry Pi
 
 * Start the raspbery Pi with the master SD card
 * It will take around 10 minutes for the installation to be completed.
@@ -122,7 +122,7 @@ export AUTH_TOKEN=$(ssh -l root ${MASTER_IP} "cat /var/lib/rancher/k3s/server/no
 ssh -o SendEnv=MASTER_IP -o SendEnv=AUTH_TOKEN -l root ${HOSTNAME}.local <<-\SSH
 # install k3s
 curl -sfL https://get.k3s.io | K3S_URL=https://${MASTER_IP}:6443 K3S_TOKEN=${AUTH_TOKEN} sh -
-SSH
+SSH  # prompt will be back when done
 ```
 
 ## test if worker joined kubernetes cluster
