@@ -108,15 +108,19 @@ root_ssh_pubkey="${root_ssh_pubkey}"
 # vim: set ft=config:
 
 EOF
+
 # copy post installation command
+echo ""
 echo "copy post installation command"
 echo "cp post-install.txt "${sd_card_name}"/raspberrypi-ua-netinst/config/post-install.txt"
 cp post-install.txt "${sd_card_name}"/raspberrypi-ua-netinst/config/post-install.txt
 
+# ejct card
 echo ""
 echo "ejecting ${sd_card_device}"
 diskutil eject ${sd_card_device}
 
+# last messages
 echo ""
 echo "all done."
 echo " install the SD CARD in the Raspberry"

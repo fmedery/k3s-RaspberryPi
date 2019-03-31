@@ -37,6 +37,10 @@
 
 # Create the master node
 
+## Burn image
+
+* Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD card.
+
 ## Create the unattended config
 
 ``` sh
@@ -47,13 +51,11 @@ export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 
 ./init.sh
 ```
-## Burn image
-
-* Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD card.
 
 ## install Raspberry Pi
 
 * Start the raspbery Pi with the master SD card.
+* It will take around 10 minutes for the installation to be finished
 * When ready test ssh connectivity:
 ``` sh
 ssh -l root ${HOSTNAME}.local -t hostname
@@ -71,16 +73,20 @@ SSH
 ssh -l root ${MASTER_IP}  "k3s kubectl get node"
 ```
 
-# Create workers nodes
+# Create worker nodes
 
 * We will create:
     * worker1
     * worker2
     * worker3
 
+
+## Burn image
+
+* Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD card.
+
 ## Create unattended config file
 
-* run 
 ``` sh
 export HOSTNAME="<worker 1,2 or 3>"
 export IP="<worker IP>"
@@ -89,15 +95,10 @@ export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 ./init.sh
 ```
 
-## Burn image
-
-* Disable "Auto-unmount on success" in balenaEtcher settings.
-* Use balenaEtcher to burn `raspberrypi-ua-netinst.img.bz2` on the SD card.
-
 ## install Raspberry Pi
 
 * Start the raspbery Pi with the master SD card
-* it takes around 10 minutes for the installation to be finished
+* It will take around 10 minutes for the installation to be finished
 * When ready test ssh connectivity:
 ``` sh
 ssh -l root ${HOSTNAME}.local hostname
