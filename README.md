@@ -5,6 +5,27 @@
 * I want to be able to speed up the process of installing and configuring the OS on each SD CARD.
 * I install zeronf package to be able to connect to each node easily.
 * I use a Mac.
+* I live in Canada so Hardware list is for people living in Canada.
+
+# Hardware
+* Raspberry Pi 3 Model B+:
+    * https://www.buyapi.ca/
+    * https://www.canakit.com/
+
+* Heatsink Cooler:
+    * https://www.amazon.ca/dp/B010ER7UN8/ref=pe_3034960_236394800_TE_dp_5
+
+* switch:
+    * https://www.amazon.ca/dp/B00A121WN6/ref=cm_sw_em_r_mt_dp_U_KerOCbHFS5XZ8
+
+* case:
+    * https://www.amazon.ca/ILS-Clear-Acrylic-Cluster-Raspberry/dp/B0768DDTKD
+
+* USB HUB (for power):
+    * https://www.amazon.ca/dp/B00YRYS4T4/ref=pe_3034960_236394800_TE_dp_4
+
+* SD CARD:
+    * https://www.amazon.ca/dp/B010Q57T02/ref=pe_3034960_236394800_TE_dp_2
 
 # Pre requis
 * Install balenaEtcher https://www.balena.io/etcher/ on your computer
@@ -15,11 +36,12 @@
 * Use balenaEtcher to burn raspberrypi-ua-netinst img.bz2 on each SD CARD.
 
 # Create the master node
-## Create unattended config file on each SD CARD 
-* run 
+## Create the unattended config file on each SD CARD 
+
 ``` sh
-export HOSTNAME="master"
-export IP="<IP>"
+export HOSTNAME="<master hostname>"
+export MASTER_IP="<master IP>"
+export IP=${MASTER_IP}
 export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
 
 ./init.sh
@@ -61,14 +83,14 @@ cat /etc/rancher/k3s/k3s.yaml
 * run 
 ``` sh
 export HOSTNAME="<worker 1,2 or 3>"
-export IP="<IP>"
+export IP="<worker IP>"
 export ROOT_SSH_PUBKEY="<YOUR SSH PUBLIC KEY>"
-export MASTER_IP="<IP of MASTER>"
 
 ./init.sh
 ```
 ## install Raspberry Pi
 * Start the raspbery Pi with the master SD CARD
+* it takes around 10 minutes for the installation to be finished
 * When ready test ssh connectivity:
 ``` sh
 ssh -l root ${HOSTNAME}.local hostname
@@ -78,8 +100,8 @@ ssh -l root ${HOSTNAME}.local hostname
 * install k3s
 
 ```sh
-
-export AUTH_TOKEN=$(ssh -l root ${MASTER_IP}.local "cat /var/lib/rancher/k3s/server/node-token")
+export MASTER_IP="<master IP>"
+export AUTH_TOKEN=$(ssh -l root ${MASTER_IP} "cat /var/lib/rancher/k3s/server/node-token")
 
 ssh -o SendEnv=MASTER_IP -o SendEnv=AUTH_TOKEN -l root ${HOSTNAME}.local <<-\SSH
 # install k3s
@@ -90,7 +112,7 @@ SSH
 ## test if worker joined kubernetes cluster
 
 ```sh
-ssh -l root ${MASTER_IP}.local "k3s kubectl get node"
+ssh -l root ${MASTER_IP} "k3s kubectl get node"
 ```
 
 # Final setup

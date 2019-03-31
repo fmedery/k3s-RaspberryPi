@@ -1,1 +1,1 @@
-chroot /rootfs /bin/sed 's=AcceptEnv LANG LC_\*=AcceptEnv LANG LC_\* MASTER_IP AUTH_TOKEN=g' /etc/ssh/sshd_config
+chroot /rootfs /bin/sed -i.backup 's=AcceptEnv LANG LC_\*=AcceptEnv LANG LC_\* MASTER_IP AUTH_TOKEN=g' /etc/ssh/sshd_config
