@@ -61,19 +61,16 @@ ssh -l root ${HOSTNAME}.local -t hostname
 ## Install k3s
 
 ```sh
-ssh -l root master.local <<-\SSH
+ssh -l root ${MASTER_IP} <<-\SSH
 # install k3s
 curl -sfL https://get.k3s.io | sh -
 SSH
 ```
 * test if kubernetes is up
 ```sh
-ssh -l root master.local "k3s kubectl get node"
+ssh -l root ${MASTER_IP}  "k3s kubectl get node"
 ```
-* get kubernets token to authenticate workers when joining
-```sh
-export K3S_TOKEN=$(ssh -l root master.local "cat /var/lib/rancher/k3s/server/node-token")
-```
+
 # Create workers nodes
 
 * We will create:
