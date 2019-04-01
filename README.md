@@ -3,7 +3,7 @@
 * I want to create a kubernetes cluster using k3s on multiple `Raspberry Pi 3 Model B+`: 1 master and 3 workers.
 * k3s doesn't support master HA for now: https://github.com/rancher/k3s#server-ha
 * The `init.sh` script has only been tested on MacOS but should be OK on Linux.
-* I live in Canada so all the hardware can be bought in Canada.
+* I live in Canada so all the hardware can be bought from there.
 
 # Hardware
 
@@ -25,6 +25,13 @@
 
 * Micro SD card:
     * https://www.amazon.ca/dp/B010Q57T02/ref=pe_3034960_236394800_TE_dp_2
+
+* USB 2.0 to Micro 5Pin USB cables:
+    * https://www.primecables.ca/p-309029-at-usb2-micro5p-all-premium-usb-20-to-micro-5pin-usb-chargesync-cable-black-primecables?atc_source=search%23Premium+USB+2.0+to+Micro+5Pin+USB+Charge%26Sync+Cable+-+Black+-+PrimeCables%C2%AE+-+1.5ft#sku309029
+
+* 1FT 24AWG Cat5e Ethernet Network cable:
+    * https://www.primecables.ca/p-313033-cab-1978-all-1ft-24awg-cat5e-350mhz-utp-bare-copper-ethernet-network-cable-monoprice?atc_source=search%231FT+24AWG+Cat5e+350MHz+UTP+Bare+Copper+Ethernet+Network+Cable+-+Monoprice%C2%AE+-+Black#sku313020
+
 
 # Pre requis
 
@@ -133,10 +140,10 @@ ssh -l root ${MASTER_IP} "k3s kubectl get node"
 ```sh
 export MASTER_IP=<master IP>
 ssh -l root  ${MASTER_IP} cat /etc/rancher/k3s/k3s.yaml | sed "s=localhost:6443=${MASTER_IP}:6443=g" > ${HOME}/.kube/k3s.config
-KUBECONFIG="${HOME}/.kube/k3s.config"; kubectl get nodes
+KUBECONFIG="${HOME}/.kube/k3s.config" kubectl get nodes
 ```
 # Final setup
-
+![RaspberryPi](img/rasp_pi.jpg?raw=true "RaspberryPi")
 ## master
 
     hostname: master.local
