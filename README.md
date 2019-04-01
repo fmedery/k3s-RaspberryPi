@@ -143,7 +143,9 @@ ssh -l root  ${MASTER_IP} cat /etc/rancher/k3s/k3s.yaml | sed "s=localhost:6443=
 KUBECONFIG="${HOME}/.kube/k3s.config" kubectl get nodes
 ```
 # Final setup
-![RaspberryPi](img/rasp_pi.jpg){:height="50%" width="50%"}
+
+![RaspberryPi](img/rasp_pi.jpg)
+
 ## master
 
     hostname: master.local
