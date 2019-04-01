@@ -5,6 +5,11 @@
 * The `init.sh` script has only been tested on MacOS but should be OK on Linux.
 * I live in Canada so all the hardware can be bought from there.
 
+# TODO
+
+* Generate a SSH key pair for the project
+* Automate K3S bootstrap in `post-install.txt`
+
 # Hardware
 
 * Raspberry Pi 3 Model B+:

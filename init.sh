@@ -62,7 +62,7 @@ fi
 # create installer-config.txt
 echo "create "${sd_card_name}"/raspberrypi-ua-netinst/config/installer-config.txt"
 cat << EOF > "${sd_card_name}"/raspberrypi-ua-netinst/config/installer-config.txt
-# installed lots of usefull packages 
+# install lots of usefull packages 
 preset=server
 
 # install additional packages
@@ -71,7 +71,7 @@ packages=${packages}
 # Set to "1" to install common firmware packages (Atheros, Broadcom, Libertas, Ralink and Realtek).
 firmware_packages=1
 
-# add docker specifics
+# add docker specifics (last 3 parameters)
 cmdline="dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 elevator=deadline fsck.repair=yes cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory"
 
 timezone=${timezone}
@@ -91,7 +91,7 @@ keyboard_layout=${keyboard_layout}
 locales=${locales}
 system_default_locale=${system_default_locale}
 
-# set the minimum of GPU RAM
+# 16 MB of shared memory
 gpu_mem=16
 
 root_ssh_pubkey="${root_ssh_pubkey}"
