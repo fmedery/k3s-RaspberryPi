@@ -3,7 +3,6 @@
 * I want to create a kubernetes cluster using k3s on multiple Raspberry Pi 3 Model B+.
 * k3s doesn't support master HA at the moment https://github.com/rancher/k3s#server-ha
 * I will create 1 master and 3 workers.
-* I want to be able to speed up the process of installing and configuring the OS on each SD card.
 * I install `zeronf` to be able to connect to each node easily.
 * I use a Mac.
 * I live in Canada so the hardware can be bought in Canada.
