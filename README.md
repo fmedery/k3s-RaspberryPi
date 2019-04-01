@@ -1,11 +1,9 @@
 # Introduction
 
-* I want to create a kubernetes cluster using k3s on multiple Raspberry Pi 3 Model B+.
-* k3s doesn't support master HA at the moment https://github.com/rancher/k3s#server-ha
-* I will create 1 master and 3 workers.
-* I install `zeronf` to be able to connect to each node easily.
-* I use a Mac.
-* I live in Canada so the hardware can be bought in Canada.
+* I want to create a kubernetes cluster using k3s on multiple `Raspberry Pi 3 Model B+`: 1 master and 3 workers.
+* k3s doesn't support master HA for now: https://github.com/rancher/k3s#server-ha
+* The `init.sh` script has only been tested on MacOS but should be OK on Linux.
+* I live in Canada so all the hardware can be bought in Canada.
 
 # Hardware
 
