@@ -131,6 +131,13 @@ SSH
 ssh -l root ${MASTER_IP} "k3s kubectl get node"
 ```
 
+# Get cluster config on your computer
+
+```sh
+export MASTER_IP=<master IP>
+ssh -l root  ${MASTER_IP} cat /etc/rancher/k3s/k3s.yaml | sed "s=localhost:6443=${MASTER_IP}:6443=g" > ${HOME}/.kube/k3s.config
+KUBECONFIG="${HOME}/.kube/k3s.config"; kubectl get nodes
+```
 # Final setup
 
 ## master
