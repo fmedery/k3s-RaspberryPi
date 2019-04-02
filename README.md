@@ -1,10 +1,10 @@
 # Introduction
 
-k3s is intended to be a fully compliant lightweight Kubernetes Distribution which is easy to install, takes half the memory with a binary less than 40mb.
+[k3s](https://k3s.io/) by Rancher is intended to be a fully compliant lightweight Kubernetes Distribution which is easy to install, uses 512 of RAM and the binary only takes 40MB.
 
 I want to automate as much as possible the installation of a k3s cluster build with multiple `Raspberry Pi 3 Model B+`.
 
-k3s doesn't support a [high availabilty control plane yet](https://github.com/rancher/k3s#server-ha)
+k3s doesn't support  [a high availabilty control plane yet](https://github.com/rancher/k3s#server-ha)
 
 The `init.sh` script has only been tested on MacOS but should also work on GNU Linux machine.
 
@@ -14,7 +14,7 @@ I live in Canada so all the hardware can be bought here.
 
 # To do
 
-* Generate a SSH key pair for the project instead of using your own.
+* Generate a SSH key pair instead of using your own.
 * Automate k3S bootstrap in `post-install.txt`.
 
 # Hardware
