@@ -2,15 +2,21 @@
 
 [k3s](https://k3s.io/) by Rancher is intended to be a fully compliant lightweight Kubernetes Distribution which is easy to install, uses 512 of RAM and the binary only takes 40MB.
 
-I want to automate as much as possible the installation of a k3s cluster build with multiple `Raspberry Pi 3 Model B+`.
+I want to automate as much as possible the installation of a k3s cluster built with multiple `Raspberry Pi 3 Model B+`.
 
 k3s doesn't support  [a high availabilty control plane yet](https://github.com/rancher/k3s#server-ha)
 
 The `init.sh` script has only been tested on MacOS but should also work on GNU Linux machine.
 
-All the command and script below will run on your computer, no need to log into any Raspberry.
+The `init.sh` script will:
+* create the unattended install file on the SD card.
+* create the post installation script on the SD card.
 
-I live in Canada so all the hardware can be bought here.
+The k3s installation is not automated but the instructions below are really easy to follow.
+
+All the commands and the `init.sh` script will be run on your computer. You won't need to log in to any Raspberry computer.
+
+The hardware listed below is for builders located in Canada.
 
 # To do
 
