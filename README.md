@@ -1,11 +1,14 @@
 # Introduction
 
-* I want to create a kubernetes cluster using k3s on multiple `Raspberry Pi 3 Model B+`: 1 master and 3 workers.
-* k3s doesn't support master HA for now: https://github.com/rancher/k3s#server-ha
-* The `init.sh` script has only been tested on MacOS but should be OK on Linux.
-* I live in Canada so all the hardware can be bought from there.
+k3s is intended to be a fully compliant lightweight Kubernetes Distribution which is easy to install, takes half the memory with a binary less than 40mb.
 
-# TODO
+I want to automate as much as possible a k3s cluster build with multiple `Raspberry Pi 3 Model B+`.
+k3s doesn't support a [high availabilty control plane yet](https://github.com/rancher/k3s#server-ha)
+The `init.sh` script has only been tested on MacOS but should be OK on Linux.
+
+I live in Canada so all the hardware can be bought here.
+
+# To do
 
 * Generate a SSH key pair for the project
 * Automate K3S bootstrap in `post-install.txt`
@@ -38,7 +41,7 @@
     * https://www.primecables.ca/p-313033-cab-1978-all-1ft-24awg-cat5e-350mhz-utp-bare-copper-ethernet-network-cable-monoprice?atc_source=search%231FT+24AWG+Cat5e+350MHz+UTP+Bare+Copper+Ethernet+Network+Cable+-+Monoprice%C2%AE+-+Black#sku313020
 
 
-# Pre requis
+# Prerequisites
 
 * Install balenaEtcher https://www.balena.io/etcher/ on your computer.
 * Disable `Auto-unmount on success` in balenaEtcher's settings.
@@ -83,7 +86,7 @@ ssh -l root ${MASTER_IP} <<-\SSH
 curl -sfL https://get.k3s.io | sh -
 SSH
 ```
-* test if kubernetes is up
+* test if Kubernetes is up
 ```sh
 ssh -l root ${MASTER_IP}  "k3s kubectl get node"
 ```
@@ -116,8 +119,8 @@ export DOMAIN_NAME="<domain name>" # DOMAIN_NAME=local if not set
 ## Install Raspbian
 
 * Start the raspbery Pi with the master SD card
-* It will take around 10 minutes for the installation to be completed.
-* When ready test ssh connectivity:
+* It will take approximately 10 minutes for the installation to be completed.
+* When ready, test ssh connectivity:
 ``` sh
 ssh -l root ${HOSTNAME}.local hostname
 ```
@@ -134,7 +137,7 @@ curl -sfL https://get.k3s.io | K3S_URL=https://${MASTER_IP}:6443 K3S_TOKEN=${AUT
 SSH
 ```
 
-## Test if the worker joined the kubernetes cluster
+## Test if the worker joined the Kubernetes cluster
 
 ```sh
 ssh -l root ${MASTER_IP} "k3s kubectl get node"
