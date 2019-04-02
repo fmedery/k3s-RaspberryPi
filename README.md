@@ -2,16 +2,20 @@
 
 k3s is intended to be a fully compliant lightweight Kubernetes Distribution which is easy to install, takes half the memory with a binary less than 40mb.
 
-I want to automate as much as possible a k3s cluster build with multiple `Raspberry Pi 3 Model B+`.
+I want to automate as much as possible the installation of a k3s cluster build with multiple `Raspberry Pi 3 Model B+`.
+
 k3s doesn't support a [high availabilty control plane yet](https://github.com/rancher/k3s#server-ha)
-The `init.sh` script has only been tested on MacOS but should be OK on Linux.
+
+The `init.sh` script has only been tested on MacOS but should also work on GNU Linux machine.
+
+All the command and script below will run on your computer, no need to log into any Raspberry.
 
 I live in Canada so all the hardware can be bought here.
 
 # To do
 
-* Generate a SSH key pair for the project
-* Automate K3S bootstrap in `post-install.txt`
+* Generate a SSH key pair for the project instead of using your own.
+* Automate k3S bootstrap in `post-install.txt`.
 
 # Hardware
 
@@ -43,7 +47,7 @@ I live in Canada so all the hardware can be bought here.
 
 # Prerequisites
 
-* Install balenaEtcher https://www.balena.io/etcher/ on your computer.
+* Install balenaEtcher https://www.balena.io/etcher/ on your computer or use `dd` on the command line.
 * Disable `Auto-unmount on success` in balenaEtcher's settings.
 * Download the latest `raspberrypi-ua-netinst-v<VERSION>.img.bz2`: https://github.com/FooDeas/raspberrypi-ua-netinst/releases/latest
 
